@@ -27,3 +27,19 @@ dependencies {
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+bootJar {
+    launchScript()
+}
+
+task npmRunBuild {
+    doLast {
+        def npm = System.getProperty('os.name').contains('Windows') ? 'cmd /c npm' : 'npm'
+        if (file('./node_modules').exists() ==  false) {
+            "${npm} install".execute().waitForProcessOutput(System.out, System.err)
+        }
+        "${npm} run build".execute().waitForProcessOutput(System.out, System.err)
+    }
+}
+
+processResources.dependsOn npmRunBuild
