@@ -43,7 +43,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    contentBase: path.join(__dirname, "./bin/static")
+    watchContentBase: true,
+    port: 3000,
+    contentBase: path.join(__dirname, "./src/main/resources/static")
   },
   performance: {
     hints: false

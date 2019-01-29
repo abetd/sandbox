@@ -1,7 +1,15 @@
 import Vue from 'vue'
 import HelloWorld from './HelloWorld.vue'
 
-new Vue({
-    el: '#hellovue',
-    render: h => h(HelloWorld)
+var hello = new Vue({
+    el: '#hello',
+    components: { HelloWorld },
+    template: '<HelloWorld />'
 })
+
+var hello2 = new Vue({
+    el: '#hello2',
+    components: { HelloWorld },
+    template: '<HelloWorld />'
+})
+
