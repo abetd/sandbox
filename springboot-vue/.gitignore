@@ -28,3 +28,6 @@
 ### Node ###
 /node_modules/
 package-lock.json
+
+### webpack(vue) ###
+/src/main/resources/static/dist/

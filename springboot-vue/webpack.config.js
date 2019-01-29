@@ -13,7 +13,7 @@ const entries = fs.readdirSync('./src/main/js')
 module.exports = {
   entry: entries,
   output: {
-    path: path.resolve(__dirname, './src/main/resources/static/js'),
+    path: path.resolve(__dirname, './src/main/resources/static/dist'),
     publicPath: '/js/',
     filename: '[name].js'
   },
