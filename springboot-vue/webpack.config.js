@@ -52,3 +52,17 @@ module.exports = {
   },
   devtool: '#eval-source-map'
 }
+
+if (process.env.NODE_ENV === 'dev') {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      NODE_ENV: '"develop"'
+    })
+  ])
+} else {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      NODE_ENV: '"production"'
+    })
+  ])
+}
