@@ -1,0 +1,13 @@
+type Author {
+    id: Int!
+    name: String!
+}
+
+type Book {
+    id: Int!
+    name: String!
+}
+
+extend type Query {
+    getAuthorById(id: Int!) : Author
+}
