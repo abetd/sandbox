@@ -11,12 +11,18 @@ const entries = fs.readdirSync('./src/main/js')
                   }, vendor)
 
 module.exports = {
+  mode: 'production',
   entry: entries,
   output: {
     path: path.resolve(__dirname, './src/main/resources/static/dist'),
     publicPath: '/js/',
     filename: '[name].js'
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
+  ],
   module: {
     rules: [
       {
@@ -51,18 +57,4 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map'
-}
-
-if (process.env.NODE_ENV === 'dev') {
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      NODE_ENV: '"develop"'
-    })
-  ])
-} else {
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      NODE_ENV: '"production"'
-    })
-  ])
 }

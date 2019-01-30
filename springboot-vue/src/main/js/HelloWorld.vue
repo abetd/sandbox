@@ -6,8 +6,8 @@
 
 <script>
 var message = 'hello world!'
-if (NODE_ENV === 'develop') {
-  message = 'hello develop'
+if (process.env.NODE_ENV === 'development') {
+  message = 'hello development'
 }
 export default {
   name: 'helloworld',
