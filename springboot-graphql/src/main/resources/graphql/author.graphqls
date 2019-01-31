@@ -8,6 +8,6 @@ type Book {
     name: String!
 }
 
-extend type Query {
+type Query {
     getAuthorById(id: Int!) : Author
 }
