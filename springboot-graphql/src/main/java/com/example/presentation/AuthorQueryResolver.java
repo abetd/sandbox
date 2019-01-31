@@ -2,8 +2,12 @@ package com.example.presentation;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.domain.Author;
+import com.example.domain.Book;
 import com.example.infrastructure.AuthorDao;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class AuthorQueryResolver implements GraphQLQueryResolver {
@@ -16,5 +20,16 @@ public class AuthorQueryResolver implements GraphQLQueryResolver {
 
     public Author getAuthorById(int id) {
         return authorDao.getAuthorById(id);
+    }
+
+    public Book getBook() {
+        return new Book(1, "bookname", new Author(1, "hoge"));
+    }
+
+    public List<Book> allBooks() {
+        return Arrays.asList(
+                new Book(1, "bookname", new Author(1, "hoge")),
+                new Book(2, "Book", new Author(1, "hoge"))
+        );
     }
 }

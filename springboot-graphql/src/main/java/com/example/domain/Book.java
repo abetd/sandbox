@@ -3,13 +3,11 @@ package com.example.domain;
 public class Book {
     int id;
     String name;
-    int authorId;
+    Author author;
 
-    public Book(int id, String name, int authorId) {
+    public Book(int id, String name, Author author) {
         this.id = id;
         this.name = name;
-        this.authorId = authorId;
+        this.author = author;
     }
-
-    public Book() {}
 }

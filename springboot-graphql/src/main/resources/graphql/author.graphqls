@@ -6,8 +6,11 @@ type Author {
 type Book {
     id: Int!
     name: String!
+    author: Author!
 }
 
 type Query {
     getAuthorById(id: Int!) : Author
+    getBook: Book
+    allBooks: [Book]
 }
