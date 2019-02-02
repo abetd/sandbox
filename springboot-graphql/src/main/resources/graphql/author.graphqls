@@ -1,4 +1,13 @@
-scalar Email
+schema {
+    query: Query
+}
+
+type Query {
+    getAuthorById(id: Int!) : Author
+    getAuthorByEmail(email: AuthorEmail!) : Author
+    getBook: Book
+    allBooks: [Book]
+}
 
 type Author {
     id: Int!
@@ -12,13 +21,9 @@ type Book {
     author: Author!
 }
 
-type Query {
-    getAuthorById(id: Int!) : Author
-    getAuthorByEmail(email: AuthorEmail!) : Author
-    getBook: Book
-    allBooks: [Book]
-}
 
 input AuthorEmail {
     email: String
 }
+
+scalar Email
