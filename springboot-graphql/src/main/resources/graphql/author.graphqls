@@ -1,6 +1,9 @@
+scalar Email
+
 type Author {
     id: Int!
     name: String!
+    email: Email
 }
 
 type Book {
