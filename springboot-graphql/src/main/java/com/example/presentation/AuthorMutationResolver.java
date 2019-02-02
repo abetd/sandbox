@@ -11,4 +11,8 @@ public class AuthorMutationResolver implements GraphQLMutationResolver {
     public Author addEmail(Email email) {
         return new Author(1, "hoge", email.value());
     }
+
+    public Author addAuthor(ArgumentAuthor author) {
+        return new Author(1, author.name, "foo@example.com");
+    }
 }
