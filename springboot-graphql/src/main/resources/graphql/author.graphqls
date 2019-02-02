@@ -1,12 +1,17 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Query {
     getAuthorById(id: Int!) : Author
-    getAuthorByEmail(email: AuthorEmail!) : Author
+    getAuthorByEmail(email: Email!) : Author
     getBook: Book
     allBooks: [Book]
+}
+
+type Mutation {
+    addEmail(email: Email!) : Author
 }
 
 type Author {
@@ -21,8 +26,8 @@ type Book {
     author: Author!
 }
 
-
-input AuthorEmail {
+input ArgumentAuthor {
+    name: String!
     email: String
 }
 

@@ -4,6 +4,7 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.domain.Author;
 import com.example.domain.Book;
 import com.example.infrastructure.datasource.AuthorDao;
+import com.example.infrastructure.graphql.Email;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -22,9 +23,8 @@ public class AuthorQueryResolver implements GraphQLQueryResolver {
         return authorDao.getAuthorById(id);
     }
 
-    public Author getAuthorByEmail(AuthorEmail authorEmail) {
-        // TODO : ScalarType を input に使用したい
-        return authorDao.getAuthorById(1);
+    public Author getAuthorByEmail(Email email) {
+        return new Author(1, "hoge", email.value());
     }
 
     public Book getBook() {
