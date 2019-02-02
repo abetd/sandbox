@@ -22,6 +22,11 @@ public class AuthorQueryResolver implements GraphQLQueryResolver {
         return authorDao.getAuthorById(id);
     }
 
+    public Author getAuthorByEmail(AuthorEmail authorEmail) {
+        // TODO : ScalarType を input に使用したい
+        return authorDao.getAuthorById(1);
+    }
+
     public Book getBook() {
         return new Book(1, "bookname", new Author(1, "hoge", "hoge@example.com"));
     }

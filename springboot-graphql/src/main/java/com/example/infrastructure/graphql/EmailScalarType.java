@@ -16,19 +16,19 @@ public class EmailScalarType extends GraphQLScalarType {
     }
 
     public EmailScalarType(final String name) {
-        super(name, "A custom scalar that handles emails", new Coercing() {
+        super(name, "A custom scalar that handles emails", new Coercing<String, String>() {
             @Override
-            public Object serialize(Object dataFetcherResult) {
+            public String serialize(Object dataFetcherResult) {
                 return serializeEmail(dataFetcherResult);
             }
 
             @Override
-            public Object parseValue(Object input) {
+            public String parseValue(Object input) {
                 return parseEmailFromVariable(input);
             }
 
             @Override
-            public Object parseLiteral(Object input) {
+            public String parseLiteral(Object input) {
                 return parseEmailFromAstLiteral(input);
             }
         });
@@ -39,11 +39,11 @@ public class EmailScalarType extends GraphQLScalarType {
         return Pattern.matches("[A-Za-z0-9]@[.*]", possibleEmailValue);
     }
 
-    private static Object serializeEmail(Object dataFetcherResult) {
+    private static String serializeEmail(Object dataFetcherResult) {
         return String.valueOf(dataFetcherResult);
     }
 
-    private static Object parseEmailFromVariable(Object input) {
+    private static String parseEmailFromVariable(Object input) {
         if (input instanceof String) {
             String possibleEmailValue = input.toString();
             if (looksLikeAnEmailAddress(possibleEmailValue)) {
@@ -53,7 +53,7 @@ public class EmailScalarType extends GraphQLScalarType {
         throw new CoercingParseValueException("Unable to parse variable value " + input + " as an email address");
     }
 
-    private static Object parseEmailFromAstLiteral(Object input) {
+    private static String parseEmailFromAstLiteral(Object input) {
         if (input instanceof StringValue) {
             String possibleEmailValue = ((StringValue) input).getValue();
             if (looksLikeAnEmailAddress(possibleEmailValue)) {

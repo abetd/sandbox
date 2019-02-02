@@ -14,6 +14,11 @@ type Book {
 
 type Query {
     getAuthorById(id: Int!) : Author
+    getAuthorByEmail(email: AuthorEmail!) : Author
     getBook: Book
     allBooks: [Book]
+}
+
+input AuthorEmail {
+    email: String
 }
