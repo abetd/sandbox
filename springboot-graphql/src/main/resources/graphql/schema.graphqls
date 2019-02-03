@@ -8,11 +8,15 @@ type Query {
     getAuthorByEmail(email: Email!) : Author
     getBook: Book
     allBooks: [Book]
+    today: Date
+    getThreeDays: ThreeDays
 }
 
 type Mutation {
     addEmail(email: Email!) : Author
     addAuthor(author: ArgumentAuthor!) : Author
+    setDay(day: Date): Date
+    setThreeDays(threeDays: ThreeDaysInput): ThreeDays
 }
 
 type Author {
@@ -27,9 +31,21 @@ type Book {
     author: Author!
 }
 
+type ThreeDays {
+    tommorow: Date!
+    today: Date!
+    yesterday: Date!
+}
+
 input ArgumentAuthor {
     name: String!
     email: Email
 }
 
+input ThreeDaysInput {
+    # TODO : Date(LocalDate)だとエラーになる
+    today: Date!
+}
+
 scalar Email
+scalar Date
