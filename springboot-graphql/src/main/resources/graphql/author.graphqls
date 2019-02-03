@@ -29,7 +29,6 @@ type Book {
 
 input ArgumentAuthor {
     name: String!
-    # TODO : String -> Email にしたい
     email: Email
 }
 

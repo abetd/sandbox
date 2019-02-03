@@ -17,7 +17,6 @@ public class EmailScalarType extends GraphQLScalarType {
         super(name, "A custom scalar that handles emails", new Coercing<Email, String>() {
             @Override
             public String serialize(Object dataFetcherResult) {
-                System.out.println("EmailScalarType.serialize : " + dataFetcherResult.getClass() + " " + dataFetcherResult.toString());
                 return dataFetcherResult.toString();
             }
 
