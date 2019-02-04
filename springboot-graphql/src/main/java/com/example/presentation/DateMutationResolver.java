@@ -12,8 +12,11 @@ public class DateMutationResolver implements GraphQLMutationResolver {
     public LocalDate setDay(LocalDate day) {
         return LocalDate.now().minusDays(5);
     }
+
     // setThreeDays(threeDays: ThreeDaysInput): ThreeDays
-    public ThreeDays setThreeDays(ThreeDaysInput threeDays) {
-        return new ThreeDays();
+    public ThreeDays setThreeDays(ThreeDaysInput threeDaysInput) {
+        ThreeDays result = new ThreeDays();
+        result.today = threeDaysInput.today;
+        return result;
     }
 }
