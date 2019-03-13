@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Vue.js テンプレート構文</title>
+</head>
+<body>
+<div class="ui vertical segment">
+  <div class="ui container">
+    <h2 class="ui dividing header">Vue.js ガイド テンプレート構文</h2>
+    <h3 class="ui top attached header">
+      テキスト
+    </h3>
+    <div class="ui attached segment">
+      <div id="hello">
+        <p>Message: {{ msg }}</p>
+        <p>Name: {{ name }}</p>
+      </div>
+      <script>
+        var vm = new Vue({
+          el: "#hello",
+          data: {
+            msg: "Hello World.",
+            name: "hogehoge fugafuga"
+          }
+        })
+      </script>
+    </div>
+    <h3 class="ui top attached header">
+      生のHTML
+    </h3>
+    <div class="ui attached segment">
+      <div id="rawhtml">
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+        <p>{{rawHtml}}</p>
+      </div>
+      <script>
+        var vm = new Vue({
+          el: "#rawhtml",
+          data: {
+            rawHtml: "<span style='color:red'>hoge</span>"
+          }
+        })
+      </script>
+    </div>
+  </div>
+</div>
+</body>
+</html>
