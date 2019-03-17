@@ -48,6 +48,85 @@
         })
       </script>
     </div>
+    <h3 class="ui top attached header">
+      属性
+    </h3>
+    <div class="ui attached segment">
+      <div id="attribute">
+        <div v-bind:id="dynamicId">hogehoge</div>
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+      </div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#attribute",
+        data: {
+          dynamicId: "hogehoge",
+          isButtonDisabled: false
+        }
+      })
+    </script>
+    <h3 class="ui top attached header">
+      JavaScript 式の使用
+    </h3>
+    <div class="ui attached segment">
+      <div id="use_js">
+        <p>{{ number + 1 }}</p>
+        <p>{{ ok ? 'YES' : 'NO' }}</p>
+        <p>{{ message.split('').reverse().join('') }}</p>
+        <div v-bind:id="'list-' + id"></div>
+      </div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#use_js",
+        data: {
+          number: 1000,
+          ok: true,
+          message: "Hello World.",
+          id: 1
+        }
+      })
+    </script>
+    <h3 class="ui top attached header">
+      ディレクティブ
+    </h3>
+    <div class="ui attached segment">
+      <div id="directive">
+        <p v-if="seen">Now you see me</p>
+      </div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#directive",
+        data: {
+          seen: true
+        }
+      })
+    </script>
+    <h3 class="ui top attached header">
+      引数
+    </h3>
+    <div class="ui attached segment">
+      <div id="arguments">
+        <a v-bind:href="url"> link </a>
+        <a v-on:click="doSomething"> click </a>
+      </div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#arguments",
+        data: {
+          url: "http://localhost:8080"
+        },
+        methods: {
+          doSomething: function() {
+            alert('click');
+          }
+        }
+      })
+    </script>
+  </div>
   </div>
 </div>
 </body>
