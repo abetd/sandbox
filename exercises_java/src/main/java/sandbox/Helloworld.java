@@ -1,4 +1,4 @@
-package example.sandbox;
+package sandbox;
 
 public class Helloworld {
     String hello() {

@@ -1,5 +1,4 @@
-package example.sandbox;
-
+package sandbox;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
