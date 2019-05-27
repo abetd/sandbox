@@ -1,1 +1,0 @@
-/Users/abetd/developments/my-products/multi_project/core/build/classes/kotlin/main/com/example/core/CoreApplication.class:/Users/abetd/developments/my-products/multi_project/core/build/classes/kotlin/main/com/example/core/CoreApplicationKt.class

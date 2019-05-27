@@ -20,5 +20,8 @@ public class HashidsTest {
 
         id = hashids.encode( 100000000);
         assertEquals("DY082661", id);
+
+        id = hashids.encode( 0);
+        assertEquals("JX7DY7GK", id);
     }
 }
