@@ -1,0 +1,1 @@
+/Users/abetd/developments/my-products/kotlin-multi-projects/core/build/classes/kotlin/main/com/example/core/HelloWorld.class
