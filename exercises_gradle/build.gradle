@@ -4,3 +4,13 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
+
+task hoge {
+    dependsOn "hello"
+    doFirst { println "doFirst" }
+    doLast { println "doLast" }
+}
+
+task hello {
+    println "Hello World."
+}
