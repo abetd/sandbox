@@ -6,7 +6,7 @@
     "server": "cross-env webpack-dev-server --open --inline --hot"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "0.21.1"
     "vue": "^2.5.0"
   },
   "devDependencies": {
